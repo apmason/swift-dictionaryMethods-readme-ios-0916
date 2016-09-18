@@ -44,12 +44,8 @@ let godfatherFilms = [
     "The Godfather Part III"
 ]
 
-
-// UPDATING KEYS
-
 let result1 = movies.updateValue(godfatherFilms, forKey: "The Godfather")
 let result2 = movies.updateValue(fastAndFuriousFilms, forKey: "The Fast and the Furious")
-
 print(result1)
 print(result2)
 
@@ -60,9 +56,16 @@ if let godfatherMovies = movies["The Godfather"] {
     print(godfatherMovies)
 }
 
+//movies["The Fast and the Furious"].append("Faster! 9")
+//movies["The Fast and the Furious"].append("THE FASTEST 10")
 
+if var films = movies["The Fast and the Furious"] {
+    films.append("Faster! 9")
+    films.append("THE FASTEST 10")
+}
 
-// MODIFYING VALUES
+print(movies)
+
 
 if var films = movies["The Fast and the Furious"] {
     films.append("Faster! 9")
@@ -77,23 +80,13 @@ if let fastMovies = movies["The Fast and the Furious"] {
     }
 }
 
-
-
-// DELETING KEY/VALUE PAIRS
-
-movies["The Fast and the Furious"] = nil
-
+//movies["The Fast and the Furious"] = nil
+movies.removeValueForKey("The Fast and the Furious")
 if let fast3rFilms = movies["The Fast and the Furious"] {
     print("\(fast3rFilms)")
-} else {
+}   else {
     print("YAY! no more Fast & Furious movies!")
 }
-
-movies.removeValueForKey("The Fast and the Furious")
-
-
-
-// COUNTING ITEMS
 
 let planetsAndTheirMoons = [
     "Mercury": 0,
@@ -107,6 +100,7 @@ let planetsAndTheirMoons = [
 ]
 
 var planetCount = 0
+
 for (planet, numberOfMoons) in planetsAndTheirMoons {
     planetCount += 1
 }
@@ -115,13 +109,11 @@ print(planetCount)
 let planetCount2 = planetsAndTheirMoons.count
 print(planetCount2)
 
-
 if planetsAndTheirMoons.isEmpty {
     print("planetsAndTheirMoons is empty")
 } else {
     print("planetsAndTheirMoons has \(planetsAndTheirMoons.count) items")
 }
-
 
 var emptyDictionary = [String: String]()
 if emptyDictionary.isEmpty {
@@ -130,22 +122,17 @@ if emptyDictionary.isEmpty {
     print("There's something here...")
 }
 
-
-
-// RETRIEVING KEYS
-
 let planetNames = Array(planetsAndTheirMoons.keys)
+print(planetNames)
 
 for planet in planetsAndTheirMoons.keys {
     print(planet)
 }
 
-
-
-// RETRIEVING VALUES
-
 let allTheMoons = Array(planetsAndTheirMoons.values)
+print(allTheMoons)
 
 for numberOfMoons in planetsAndTheirMoons.values {
     print(numberOfMoons)
 }
+
